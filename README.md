@@ -1,0 +1,2 @@
+# Contract Helper
+Solidity Development Efficiency and Quality is a tool designed to improve the development process of Solidity smart contracts by automating test cases generate and code documentation. It aims to enhance productivity, code quality, and security for Solidity developers.

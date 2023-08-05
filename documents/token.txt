@@ -1,0 +1,58 @@
+# Code Explanation
+
+## Description:
+This document explains the functionality of the LNQToken smart contract. The contract inherits from two other OpenZeppelin contracts, ERC20Permit and Ownable, and provides the functionality of minting and burning tokens.
+
+## Usecases:
+The code serves the following use cases:
+- Use case 1: Create and manage an ERC20 token called LNQToken with a symbol of LNQ.
+- Use case 2: Allow the token to be mintable and set a minter address to control minting.
+- Use case 3: Allow the token to be burned by the token owner or by an approved address.
+
+## Working:
+The code operates based on the following working principles:
+1. The contract is constructed with the name "LNQToken" and the symbol "LNQ". It uses the ERC20Permit and Ownable contracts and sets the minter to the contract deployer.
+2. The onlyMinter modifier is used to ensure that only the minter can mint new tokens.
+3. The changeMintable function allows the contract owner to change whether or not the token is mintable.
+4. The setMinter function allows the contract owner to set a new minter address.
+5. The mint function is used by the minter to mint new tokens and requires that the token is currently mintable.
+6. The burn function allows the token owner to burn their own tokens.
+7. The burnFrom function allows an approved address to burn tokens on behalf of another address.
+
+## Each Function Explanation:
+1. Function changeMintable:
+   - Purpose: To change the mintable state of the token.
+   - Parameters: 
+     - _mintable (bool): The new mintable state.
+   - Return Value: None.
+   - Example Usage: `changeMintable(true)`
+
+2. Function setMinter:
+   - Purpose: To set a new minter address.
+   - Parameters: 
+     - _minter (address): The new minter address.
+   - Return Value: None.
+   - Example Usage: `setMinter(0x123...)`
+
+3. Function mint:
+   - Purpose: To mint new tokens.
+   - Parameters: 
+     - _address (address): The address to receive the minted tokens.
+     - amount (uint256): The amount of tokens to mint.
+   - Return Value: None.
+   - Example Usage: `mint(0x456..., 100)`
+
+4. Function burn:
+   - Purpose: To burn tokens owned by the caller.
+   - Parameters: 
+     - amount (uint256): The amount of tokens to burn.
+   - Return Value: None.
+   - Example Usage: `burn(50)`
+
+5. Function burnFrom:
+   - Purpose: To burn tokens from an approved address on behalf of another address.
+   - Parameters: 
+     - _address (address): The address from which to burn tokens.
+     - amount (uint256): The amount of tokens to burn.
+   - Return Value: None.
+   - Example Usage: `burnFrom(0x789..., 75)`
